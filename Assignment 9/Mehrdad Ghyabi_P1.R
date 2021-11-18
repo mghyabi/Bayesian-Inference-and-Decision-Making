@@ -1,0 +1,6 @@
+ReacTimes <- read.table (paste(getwd(),"/Data.txt", sep=""), header=F)
+LogTimes <- log(ReacTimes)
+LogTimes <- transform(LogTimes, Mean=apply(LogTimes[1:30],1, mean, na.rm = TRUE))
+LogTimes <- transform(LogTimes, SD=apply(LogTimes[1:30],1, sd, na.rm = TRUE))
+Sigma=mean(LogTimes$SD)
+Mean=mean(LogTimes$Mean)
